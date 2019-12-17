@@ -2,6 +2,7 @@ package com.altimetrik.restfulwebservices.repository;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -35,6 +36,18 @@ public class UserRepository {
 
     public User findOne(int id) {
         return users.stream().filter(u -> u.getId().equals(id)).findAny().orElse(null);
+    }
+
+    public User deleteById(int id) {
+        Iterator<User> iterator = users.iterator();
+        while (iterator.hasNext()) {
+            User user = iterator.next();
+            if (user.getId() == id) {
+                iterator.remove();
+                return user;
+            }
+        }
+        return null;
     }
 
 }
