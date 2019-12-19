@@ -17,9 +17,9 @@ public class UserRepository {
     private static int usersCount = 3;
 
     static {
-        users.add(new User(1, "A", new Date()));
-        users.add(new User(2, "B", new Date()));
-        users.add(new User(3, "C", new Date()));
+        users.add(new User(1, "A", new Date(), null));
+        users.add(new User(2, "B", new Date(), null));
+        users.add(new User(3, "C", new Date(), null));
     }
     
     public List<User> findAll() {
